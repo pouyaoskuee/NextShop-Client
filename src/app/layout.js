@@ -8,9 +8,9 @@ import Providers from "@/app/Providers";
 export const metadata = {
     title: {
         template: "%s | NextShop",
-        default:'MyLife'
+        default:'Next Shop',
     },
-    description: "it is a lifeStyle application",
+    description: "it is a shop application with next.js",
 };
 
 export default function RootLayout({ children }) {

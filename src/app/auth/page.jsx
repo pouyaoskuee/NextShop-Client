@@ -15,7 +15,7 @@ function AuthPage() {
   const [time, setTime] = useState(RESEND_TIME);
   const router = useRouter();
   const {data: otpResponse, error, isLoading, mutateAsync: mutateGetOtp,} = useMutation({mutationFn: getOtp,});
-  const { mutateAsync: mutateCheckOtp, isLoading: isCechkingOtp } = useMutation(
+  const { mutateAsync: mutateCheckOtp, isLoading: isCheckingOtp } = useMutation(
       {
       mutationFn: checkOtp,
   });
@@ -47,8 +47,6 @@ function AuthPage() {
       } else {
         router.push("/complete-profile");
       }
-      // push -> /complete-profile
-      // isActive -> / : /complete-profile
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
@@ -57,7 +55,7 @@ function AuthPage() {
   useEffect(() => {
     const timer = time > 0 && setInterval(() => setTime((t) => t - 1), 1000);
     return () => {
-      if (timer) clearInterval(timer);
+      clearInterval(timer);
     };
   }, [time]);
 
@@ -82,7 +80,7 @@ function AuthPage() {
             time={time}
             onResendOtp={sendOtpHandler}
             otpResponse={otpResponse}
-            isCechkingOtp={isCechkingOtp}
+            isCheckingOtp={isCheckingOtp}
           />
         );
       default:

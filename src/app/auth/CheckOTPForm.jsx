@@ -11,7 +11,7 @@ function CheckOTPForm({
   onBack,
   time,
   onResendOtp,
-  isCechkingOtp,
+  isCheckingOtp,
 }) {
   return (
     <div>
@@ -33,8 +33,8 @@ function CheckOTPForm({
           <button onClick={onResendOtp}>ارسال مجدد کد؟</button>
         )}
       </div>
-
-      <form className="space-y-10" onSubmit={onSubmit}>
+a
+      <form className="space-y-10" onSubmit={(e)=>onSubmit(e)}>
         <p className="font-bold">کد تایید را وارد کنید</p>
         <OTPInput
           value={otp}
@@ -44,14 +44,14 @@ function CheckOTPForm({
           inputStyle={{
             width: "2.5rem",
             padding: "0.5rem 0.2rem",
-            border: "1px solid rgb(var(--color-primary-300))",
+            border: "1px solid var(--color-primary-300)",
             borderRadius: "0.5rem",
           }}
           containerStyle="flex flex-row-reverse gap-x-2 justify-center"
           renderInput={(props) => <input type="number" {...props} />}
         />
         <div>
-          {isCechkingOtp ? (
+          {isCheckingOtp ? (
             <p>Loading...</p>
           ) : (
             <button type="submit" className="btn btn--primary w-full">
