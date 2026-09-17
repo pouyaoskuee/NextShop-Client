@@ -1,13 +1,11 @@
 "use client";
 
+import { useGetUser } from "@/hooks/useAuth";
 import Link from "next/link";
 
 function Header() {
-
-    const user = {
-        name: "pouya",
-    }
-    const isLoading=false
+  const { data, error, isLoading } = useGetUser();
+  const { user, cart } = data || {};
 
   return (
     <header
@@ -37,11 +35,11 @@ function Header() {
               پنل ادمین
             </Link>
           </li>
-          {/*<li>*/}
-          {/*  <Link className="block py-2" href="/cart">*/}
-          {/*    سبد خرید ({cart ? cart.payDetail.productIds.length : 0})*/}
-          {/*  </Link>*/}
-          {/*</li>*/}
+          <li>
+            <Link className="block py-2" href="/cart">
+              سبد خرید ({cart ? cart.payDetail.productIds.length : 0})
+            </Link>
+          </li>
           {user ? (
             <span>{user.name}</span>
           ) : (
