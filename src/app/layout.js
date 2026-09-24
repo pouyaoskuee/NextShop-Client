@@ -1,4 +1,4 @@
-import "../../styles/globals.css";
+import "@/styles/globals.css"
 import vazirFont from "@/constants/localFonts";
 import Header from "@/app/Header";
 import {Toaster} from "react-hot-toast";
