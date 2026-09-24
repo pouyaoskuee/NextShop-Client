@@ -9,3 +9,7 @@ export function getProducts(qs, cookies) {
     })
     .then(({ data }) => data.data);
 }
+
+export function likeProduct(id) {
+  return http.post(`/product/like/${id}`).then(({ data }) => data.data);
+}
