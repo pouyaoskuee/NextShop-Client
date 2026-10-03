@@ -11,8 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" dir="rtl" className={`${vazirFont.variable} font-sans antialiased`}>
-      <body>
+      <main className={'-mt-10'}>
         <Providers>
           <Toaster />
           <div className="grid grid-cols-5 bg-white h-screen">
@@ -22,7 +21,6 @@ export default function RootLayout({ children }) {
             <div className="col-span-4 overflow-y-auto p-4">{children}</div>
           </div>
         </Providers>
-      </body>
-    </html>
+      </main>
   );
 }
