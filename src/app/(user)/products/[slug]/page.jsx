@@ -1,5 +1,6 @@
 import { getOneProductBySlug, getProducts } from "@/services/productService";
 import {toPersianNumbersWithComma} from "@/utils/toPersianNumbers";
+import AddToCart from "@/app/(user)/products/[slug]/AddToCart";
 
 
 export const dynamic = "force-static"; // SSG or {cache : "force-cache"}
@@ -28,7 +29,7 @@ async function page({ params }) {
           </div>
         </div>
       )}
-      {/*<AddToCart product={product} />*/}
+      <AddToCart product={product} />
     </div>
   );
 }
